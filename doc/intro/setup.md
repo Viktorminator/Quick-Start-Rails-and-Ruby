@@ -1,34 +1,34 @@
-## Setup
+## Установка
 
-This tutorial uses [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) to get you started right away, so you don't have to worry about any special setup on your computer.
+В этом уроке используется [Docker](https://www.docker.com/) и [Docker Compose](https://docs.docker.com/compose/), поэтому чтобы начать вам не нужно беспокоится о специальной установке на вашем компьютере. 
 
-If you are not yet familiar with Docker, that's no problem. Once you installed Docker and Docker Compose just remember to make sure whenever you see a ":whale:" next to a command that you are in a "container".
+Если вы ещё не знакомы с Docker, то не страшно, после того, как вы установите Docker и Docker Compose просто проверяйте, что каждый раз при смайлике ":whale:" возле команды вы находитесь в контейнере.
 
-### Installing Docker and Docker Compose
+### Установка Docker и Docker Compose
 
-If you are on a Mac or Windows you can download and install the [Docker Toolbox](https://www.docker.com/toolbox).
-On Windows you will also need to install Docker Compose manually; start at step **4** here: http://docs.docker.com/compose/install/
+Если вы работаете с Mac или Windows, то можете загрузить и установить [Docker Toolbox](https://www.docker.com/toolbox).
+На Windows вам также понадобится установить ручную Docker Compose начав с пункта **4** здесь: http://docs.docker.com/compose/install/
 
-If you are on Ubuntu Linux, we have a tutorial on the [Ubuntu Setup](ubuntu-setup.md) page.
+Если вы работаете с Ubuntu Linux, то для вас есть урок [Ubuntu установка](ubuntu-setup.md).
 
 
-If at any point during the tutorial, you are unsure if you are in a container or not, ask by typing in the terminal:
+Если на каком-то этапе в этом уроке вы не уверены, находитесь в контейнере или нет, то выполните команду:
 
 ```
 whereami
 ```
 
-and pressing enter either will tell you "You are in a container!" or it will say something like "Command not found". If you are not in a container and the command was **not found**, change into the directory of this tutorial in your terminal (with `cd`) and run the following command:
+и после нажатия enter получите ответ "You are in a container!" или что-то вроде "Command not found". Если вы не в контейнере и команда **not found**, то перейдите в необходимую директорию через команду в вашем терминале (`cd`) и запустите следующую команду:
 
 ```
 sudo docker-compose run shell
 ```
 
-If you see "=> You are in a container!" then you are all good and you can run the commands in this tutorial. :)
+Если вы увидите "=> You are in a container!", то тогда у вас всё в порядке и вы можете запускать команды из этого урока. :)
 
-If you are more interested in how to work with Docker you can read up on it here:
+Если хотите более подробно ознакомится с Docker, то можете почитать тут:
 
   * [Getting started with Docker - Servers for Hackers](https://serversforhackers.com/getting-started-with-docker)
   * [Docker Compose - Quick Start](https://docs.docker.com/compose/#quick-start)
 
-Keep in mind that in the tutorial you will see commands marked with ":whale:" to indicate that this is executed in the Docker container.
+Примите во внимание, что в этом уроке вы увидите команды отмеченные ":whale:" для индикации, что она выполняется в контейнере Docker.
