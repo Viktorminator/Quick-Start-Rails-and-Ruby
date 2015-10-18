@@ -1,35 +1,55 @@
-## Ubuntu-Setup
+## Ubuntu-установка
 
-### Docker Installation
+### Установка Docker
 
-This guide follows along Dockers's own [installation guide](https://docs.docker.com/installation/ubuntulinux/) for Ubuntu
+Эта установка совпадает с [официальным руководством Docker](https://docs.docker.com/installation/ubuntulinux/) для Ubuntu
 
-* Open a new terminal
+* Откройте терминал
 
-* Prerequisite is a 64 bit Ubuntu Version, find out using <br/>
-  ```uname -a``` <br/>
-  e.g. ```Linux aristoteles 3.13.0-65-generic #106-Ubuntu SMP Fri Oct 2 22:08:27 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux``` <br/>
-  x84_64 indicates, that we have a 64 bit version here. (Old netbooks are 32 bit architelcture and not supported by Docker, sorry.)
+* Необходимое требование - это 64 битная версия Ubuntu, узнайте какая ваша через команду
 
-* Which version of Ubuntu have we got installed? <br/>
-  ```cat /etc/issue```
+```
+uname -a
+``` 
+Получите ответ наподобие 
+
+```
+Linux aristoteles 3.13.0-65-generic #106-Ubuntu SMP Fri Oct 2 22:08:27 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+x84_64 показывает, что мы используем 64 битную версию (старые ПК могут использовать 32 битную архитектуру и не поддерживаются)
+
+* Какую версию Ubuntu вы установили?
+
+```
+cat /etc/issue
+```
+
   * Ubuntu 15.10 -> Wily
   * Ubuntu 15.04 -> Vivid
   * Ubuntu 14.04 -> Trusty
   * Ubuntu 12.04 -> Precise
 
-* add a GPG key for a the Docker package repository <br/>
-  ```apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D```
-  If this fails, no worries, you might get some warning later on installing, that you can safely ignore.
+* добавьте GPG ключ для репозитория пакетов Docker
 
-* Open the /etc/apt/sources.list.d/docker.list file in your favorite editor or create it. <br/>
-  If you don't know editors use: <br/>
-  ```sudo nano /etc/apt/sources.list.d/docker.list``` <br/>
-  The shortcuts on the bottom of the screen help you save ([STRG]+[O]) and leave nano ([STRG]+[X])
+```apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+```
 
-* Remove existing entries, if any.
+Если это не произойдёт успешно, не волнуйтесь, позже возможно возникнут некоторые сообщения при установке, но их можно спокойно игнорировать. 
 
-* Add ONE option for your Ubuntu version derived above:
+* Откройте файл /etc/apt/sources.list.d/docker.list в вашем редакторе или создайте его.
+
+Можете попробовать Nano редактор:
+
+```
+sudo nano /etc/apt/sources.list.d/docker.list
+```
+
+Подсказки внизу экрана помогут при сохраниении ([STRG]+[O]) и выходе из редактора nano ([STRG]+[X])
+
+* Удалите содержимое файла, если он не пустой.
+
+* Добавьте ОДНУ опцию для вашей версии Ubuntu, которую вы узнали ранее:
   * Ubuntu Precise <br/>
     ```deb https://apt.dockerproject.org/repo ubuntu-precise main```
   * Ubuntu Trusty <br/>
@@ -39,48 +59,48 @@ This guide follows along Dockers's own [installation guide](https://docs.docker.
   * Ubuntu Wily <br/>
     ```deb https://apt.dockerproject.org/repo ubuntu-wily main```
 
-* Update the package information <br/>
+* Обновите информацию о пакетах <br/>
   ```sudo apt-get update```
 
-* Delete any old version of Docker <br/>
+* Удалите любую старую версию Docker <br/>
   ```sudo apt-get purge lxc-docker*```
 
-* Verify that apt is pulling from the right repository <br/>
+* Убедитесь, что apt берёт пакеты из правильного репозитория<br/>
   ```apt-cache policy docker-engine``` <br/>
-  should contain lines containing: ``` https://apt.dockerproject.org/repo/```
+  должен содержать строки с: ``` https://apt.dockerproject.org/repo/```
 
-* Install prequesites:
-  * Ubuntu  Precise <br/>
+* Необходимо также установить:
+  * для Ubuntu  Precise <br/>
     ```sudo apt-get install linux-image-generic-lts-precise linux-headers-generic-lts-precise xserver-xorg-lts-precise libgl1-mesa-glx-lts-precise```
-  * Ubuntu  Trusty, Vivid or Wily <br/>
+  * для Ubuntu  Trusty, Vivid или Wily <br/>
     ```sudo apt-get install linux-image-generic linux-headers-generic xserver-xorg libgl1-mesa-glx```
 
-* If this installed new packages, reboot now.
+* Если произошла установка новых пакетов, то нужно перезагрузится.
 
-* Install Docker <br/>
+* Установите Docker <br/>
   ```sudo apt-get install docker-engine```
 
-* Verify, that this worked: <br/>
+* Убедитесь, что он работает: <br/>
   ```sudo docker run hello-world``` <br/>
-  You should see one line in the output containing: This message shows that your installation appears to be working correctly. <br/>
-  Warning messages in between are fine.
+  Вы должны увидеть строки, в одной из которых будет сообщение по типу: This message shows that your installation appears to be working correctly. <br/>
+  Всякие другие сообщения - можете не обращать внимание.
 
-* We've seen, that in the case, that docker didn't start on it's own another reboot has helped.
+* Иногда бывает, что докер не запускается в таком случае иногда помогает перезагрузка.
 
-### Docker Compose installation
+### Установка Docker Compose
 
-* Become root for a second: <br/>
+* Получите права рута: <br/>
   ```sudo su```
 
-* Download Docker Compose: <br/>
+* Загрузите Docker Compose: <br/>
   ```curl -L https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose```
 
-* Get back to your own account: ```exit```
+* Вернитесь в свою учётную запись: ```exit```
 
-* Make docker-compose executeable <br/>
+* Дайте права для docker-compose на выполнение задач <br/>
   ```sudo chmod +x /usr/local/bin/docker-compose```
 
-* Check the installation: <br/>
+* Проверьте установку: <br/>
   ```docker-compose -v``` <br/>
-  In the example output: ```docker-compose version: 1.4.2``` indicates that the installation was successfull.
+  В приведенном примере: ```docker-compose version: 1.4.2``` показывает, что установка произошла успешно.
 
