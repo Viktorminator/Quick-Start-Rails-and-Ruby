@@ -9,7 +9,7 @@
 Для начала склонируйте этот "репозиторий" с помощью Git. Git поможет вам отслеживать применяемые изменения в вашем проекте(коде); если вы ещё не знакомы с Git, то поможет этот [codeschool урок](https://www.codeschool.com/courses/try-git) это отличный ресурс. Получилось с Git? продолжайте выполнив команду в терминале:
 
 ```
-git clone https://github.com/bastilian/Quick-Start-Rails-and-Ruby.git
+git clone git@github.com:Viktorminator/Quick-Start-Rails-and-Ruby.git
 ```
 
 Или [загрузите Zip-архив](https://github.com/bastilian/Quick-Start-Rails-and-Ruby/archive/master.zip)
