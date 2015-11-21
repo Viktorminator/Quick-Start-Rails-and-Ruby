@@ -1,3 +1,3 @@
-## The `/work` directory
+## Каталог `/work`
 
-Once you have started the going through the steps you'll have a directory called "work" it is mounted inside the :whale: container from this directories **work** directory. Everything you do inside the container is actually doing it here as well. To work on the files you should open the whole work directory in your Text Editor.
+После того, как вы пройдёте предыдущие шаги, то у вас появится директория "work", которая монтируется всередине контейнера :whale: **work**. Всё, что вы делаете всередине контейнера на самом деле выполняется здесь. Чтобы работать с файлами - вам нужно открыть полностью всю рабочую директорию в вашем текстовом редакторе.

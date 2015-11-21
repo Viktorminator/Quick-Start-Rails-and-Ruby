@@ -1,8 +1,8 @@
-## Emojis and their meaning
+## Эмоиконки Emojis и их значение
 
-In this tutorial, we use a few emojis; they are there to indicate certain things, such as what kind of commands need to be run:
+В этом уроке мы будем использовать несколько эмоиконок: они здесь для показа команд, которые нужно выполнить:
 
-| Emoji | Meaning | What to do? |
+| Emoji | Значение | Что делать? |
 | :------------- | :------------- | :------------- |
-| :whale:       | Run this command inside the Docker container       | 1. Run `docker-compose start shell` inside<br />2. Run the command       |
-| 💾 | This would be a good time to "save your work" and make a `git commit`; a good commit message summarizes the changes you've made in a clear way. | - |
+| :whale:       | Выполнить эту команду всередине контейнера Docker       | 1. Запустить `docker-compose start shell`<br />2. Запустить команду       |
+| 💾 | Самое время сохранить вашу работу и сделать `git commit`; хороший комментарий в комите подытоживает изменения, которые вы сделали, понятным образом.| - |

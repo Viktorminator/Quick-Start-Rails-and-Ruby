@@ -1,17 +1,17 @@
-## Add the views
+## Добавление отображений
 
-If your server is started and you go to http://DOCKER_IP:3000/todos, it will tell you that the action is missing. We can easily fix this by adding it.
+Если ваш сервер запустился и вы перейдёте по адресу http://DOCKER_IP:3000/todos, то получите сообщение об отсутствии действия. Давайте его добавим.
 
-First, what do we want to display here? The "index"-action is primarily used for displaying a list, in this case a list of todos. The first thing we will do then is grab all Todos from our database in the `index`-action.
+Во-первых, что бы мы хотели вывести? Действие "index" в основном используется для выводда списка, в нашем случае для вывода списка todos. Вначале мы получим из базы данных все наши Todos в действии `index`.
 
-Open the file `app/controllers/todos_controller.rb`, you should see the following:
+Открыв файл `app/controllers/todos_controller.rb`, вы должны увидеть следующее:
 
 ```
 class TodosController < ApplicationController
 end
 ```
 
-This creates a new Controller class for us in which we can put our action. In between those lines add this:
+Это создаст новый класс Controller для нас, который мы можем поместить наше действие. Между строками добавьте следующее:
 
 ```
   def index
@@ -19,24 +19,24 @@ This creates a new Controller class for us in which we can put our action. In be
   end
 ```
 
-The above code defines a new method for the Controller object – in this context called "action". When it is executed (by going to `/todos` in the browser) it will define a variable which asks the Todo-Model for **all** Todos in the database. The variable will be passed to the view as well, you'll see that soon.
+Следующий код определяет новый метод для Controller объекта - в этом контексте называемым "действием". Когда оно выполняется (при переходе браузера на адрес `/todos`) он определит переменную, которая спросит Todo-модель для **всех** Todos в базе данных. Переменная также будет передана в отображение. Это вы скоро увидите.
 
-Once you've saved the file and refresh the page in the browser, you'll see another error – but don't worry about it! Rails will always try to tell you what is wrong in the best possible way, so you can fix the errors. In our particular case, the error tells you that the **Template is missing**, so let's add one. Remember how we compared views to templates earlier? In order to add a "template", create a new file called "index.html.erb" under `app/views/todos`.
+Как только вы сохраните файл и обновите страницу в браузере, то вы увидите другую ошибку - но не волнуйтесь! Rails всегда пытается сообщить вам что не так наилучшим способом, чтобы вы могли исправить ошибки. В нашем отдельном случае всплывёт ошибка **Template is missing** - **Отсутствует шаблон**, давайте добавим его. Помните как ранее мы сравнивали отображения с шаблонами? Для добавления "шаблона" создадим новый файл "index.html.erb" в `app/views/todos`.
 
-You just created a template! Notice the file ending `.erb` which tells Rails that this is an ERB-template: A template that allows you to run Ruby to make your HTML "dynamic", meaning that if something in the database changes, it changes the html.
+Вы только что создали шаблон! Обратите внимание на окончание `.erb`, которое сообщает Rails, что это ERB-шаблон: шаблон, который позволяет вам запускать Ruby, чтобы сделать ваш HTML "динамичным", что значит что если меняется база данных, то меняется html.
 
- * If you want to just run Ruby code in your template, you wrap it in `<% ... %>`
- * If you want to display something from Ruby use `<%= ... %>`
+ * Если вы хотите просто запустить Ruby код в вашем шаблоне, то вы обворачиваете его в `<% ... %>`
+ * Если вы хотите вывести что-то из Ruby используйте `<%= ... %>`
 
-First we want to display how many Todos we have. So we ask the `@todos` variable what size it has and show that like so:
+Во-первых, покажем сколько у нас есть Todos. Сделаем запрос к переменной `@todos` и узнаем какой у неё размер:
 
 ```
 <%= @todos.size %>
 ```
 
-Add this to the template, save it and refresh the page. You should see a number on the page – most likely a "0", since we have not yet added any todos. Next, let's show the todos in an unordered-list (<ul>), for when we have added some.
+Добавим это к шаблону, сохраним и обновим страницу. Вы должны увидеть номер страницы, скорее всего это будет "0", так как мы ещё не добавляли никаких todos. Давайте дальше выведем todos в виде неупорядоченого списка (<ul>), добавим для этого ещё несколько элементов.
 
-We are going over each todo in `@todos` and display the description of it. The code you'd write would look as follows:
+Мы будем проходить через каждый todo в `@todos` и выводить его описание. Код, который вы написали будет выглядеть так:
 
 ```
 <ul>
@@ -46,6 +46,5 @@ We are going over each todo in `@todos` and display the description of it. The c
 </ul>
 ```
 
-The page in the browser might still look empty, but we are now all set to implement adding todos!
-
-💾 [Add Todos index view](https://github.com/bastilian/todo-application/commit/bc70de12eabebf5a639d68791bb74f0f76e56d0d)
+Страница в браузере может по-прежнему выглядеть пустой, но мы уже всё сделали для добавления todos!
+💾 [Добавление Todos index отображения](https://github.com/bastilian/todo-application/commit/bc70de12eabebf5a639d68791bb74f0f76e56d0d)

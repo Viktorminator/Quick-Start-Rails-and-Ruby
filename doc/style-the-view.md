@@ -1,29 +1,29 @@
-## Style the view
+## Стили для отображения
 
 
-Since we are focusing on Ruby and Rails here, we are going to use a CSS-Framework (SemanticUI) to provide us with some basic styling. Add the following to your `Gemfile`:
+Так как мы сфокусируемся на Ruby on Rails here, то мы будем использовать CSS-Framework (SemanticUI) для обеспечения нам некоторого базового стиля. Добавьте следующее к вашему `Gemfile`:
 
 ```
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 ```
 
-To include the stylesheets and javascripts that make SemanticUI work in our app, we need to `require` them.
+Для включения стилей и скриптов, чтобы наш SemanticUI заработал, нам нужно вызвать в `require` их.
 
-Add this to `app/assets/stylesheets/application.css` in to the comment-block at the top before the `*/`:
+Добавьте это в файл `app/assets/stylesheets/application.css` в блоке комментариев наверху перед `*/`:
 
 ```
 *= require semantic-ui
 ```
 
-And add the javascript to `app/assets/javascripts/application.js`:
+И добавьте javascript в `app/assets/javascripts/application.js`:
 
 ```
 //= require semantic-ui
 ```
 
-Also in the first comment-block, best before `require_tree .`.
+Также в первом блоке комментариев, лучше перед `require_tree .`.
 
-To finish up our styling here is a snippet to add to `application.css`:
+Для окончания работы со стилями, добавьте этот кусок в `application.css`:
 
 ```
 body { padding: 2em 35%; }
@@ -32,6 +32,6 @@ ul { margin: 2em 0; padding: 0;}
 li { list-style: none; }
 ```
 
-This will make our Todo-list look good once we add more to our template.
+Это чуть подправит внешний вид наших Todo, когда мы их добавим чуть больше к нашему шаблону.
 
-💾 [Add SemanticUI](https://github.com/bastilian/todo-application/commit/b5867646342b9ecfe2abc8f5dae77df48df8ca38)
+💾 [Добавление SemanticUI](https://github.com/bastilian/todo-application/commit/b5867646342b9ecfe2abc8f5dae77df48df8ca38)

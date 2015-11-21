@@ -1,9 +1,8 @@
-## Create and update Todos
+## Создание и обновление Todos
 
-Of course we also want to add some todos and and mark them as done when needed.
-In Rails this can be done by adding a `create` and an `update` method to our `TodosController`.
+Конечно, нам также бы хотелось добавить пару todos и отмечать их как "выполненные" при необходимости. В Rails это можно сделать добавив методы `create` и `update` к нашему контроллеру `TodosController`.
 
-In the create action, we want the `Todo` model to save a new todo to our database. Our action should look like this then:
+В методе create мы хотим от `Todo` модели сохранить новый todo в нашу базу данных. Наше действие должно выглядить приблизительно так:
 
 ```ruby
 def create
@@ -15,11 +14,10 @@ def create
 end
 ```
 
-We are creating a new Todo and assigning it to the `@todo` variable. Then we try to `save` this new todo and if this returns `true`, it will redirect us to our index action.
+Мы создаём новый Todo и назначаем его к переменной `@todo`. Затем попытаемся `сохранить` этот новый todo и если он возвращает `true`, то он будет направлять нас в наше index действие.
 
-You may notice the `todo_params` when we make a new Todo object, so let's look at that. We have not added this yet, but we will in a minute. The method we are going to add to our controller is not an action that you can access through the browser, it is a method that will look at what parameters our browser sent, this also will contain our todo-data. In the method, we will mark parameters that are "allowed".
-
-Put the following method at the end of the `TodosController`, before the last `end`:
+Давайте взглянем на `todo_params` в Todo объекте. Мы его ещё не добавили, но сделаем это через минуту. Метод, который мы собираемся добавить к нашему контроллеру - это не действие, которым вы можете воспольоваться через браузер, это метод, который будет смотреть за параметрами, отправляемыми браузером, он также будет содрежать наши todo-данные. В этом методе мы отметим "разрешённые" параметры.
+Вставьте этот метод в конец `TodosController` перед последним `end`:
 
 ```ruby
 def todo_params
@@ -27,7 +25,7 @@ def todo_params
 end
 ```
 
-Before we jump to adding the todo list "interface", let's add the `update` method real quick to the `TodosController`. It is very similar to the `create` action, but first looks for a `Todo` in the database and updates the attributes instead of creating a new one:
+Перед тем как мі перейдём к добавлению интерфейса к нашему списку todo, давайте добавим метод `update` к контроллеру `TodosController`. Он очень похож на действие `create`, но вначале взглянем на `Todo` в базе данных и обновим аттрибут вместо создания нового:
 
 ```ruby
 def update
@@ -41,6 +39,6 @@ def update
 end
 ```
 
-Also, instead of redirecting we `render` nothing and just return **200** as the `status` to say everything went well. We do this because we will add some fancy JavaScript to make the change in the background.
+Также вместо редиректа мы `рендерим` пусто и возвращаем **200** как `status` о том, что всё прошло отлично. Добавим некоторый JavaScript, чтобы выполнялись изменения в фоне.
 
-💾 [Add create and update method in TodosController](https://github.com/bastilian/todo-application/commit/ffe88069fc6192d9d390e869535e1f7621e0f29d)
+💾 [Добавьте методы create и update method в TodosController](https://github.com/bastilian/todo-application/commit/ffe88069fc6192d9d390e869535e1f7621e0f29d)

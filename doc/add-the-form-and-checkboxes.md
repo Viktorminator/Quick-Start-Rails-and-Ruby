@@ -1,8 +1,8 @@
-## Add the Form and checkboxes
+## Добавление форм и чекбоксов
 
-To add the form to create new todos and mark them as done, we are going to modify our `index.html.erb` template a bit.
+Ятобы добавить форму для создания новых todo и сделать отметку о уже выполненных мы внесём изменения в наш шаблон `index.html.erb`.
 
-Change the first line – the one with `<%= @todos.size %>` – to the following:
+Поменяйте первую строку – ту, что с `<%= @todos.size %>` – следующим кодом:
 
 ```html
 <h1>Todos: <span id="todo-count"><%= @todos.size %></span></h1>
@@ -19,21 +19,21 @@ Change the first line – the one with `<%= @todos.size %>` – to the following
 </form>
 ```
 
-This adds the form to submit new todos.
+Это добавит форму для добавления новых todo.
 
-The form makes a `POST` request to `/todos` in our application. Rails uses HTTP-methods to route request from users. You can see what routes go to which Controller and action, and with which HTTP-method, by running (<span style="display:inline-block;float:right;margin-top:-3.5em;margin-right:.5em;position:relative;">:whale:</span>):
+Эта форма делает `POST` запросы к `/todos` в нашем приложении. Rails использует HTTP-метдоы для маршрутизации запросов от пользователей. Вы можете видеть какие маршруты к каким контролерам и действиям и с какими HTTP-method, просто запустив (<span style="display:inline-block;float:right;margin-top:-3.5em;margin-right:.5em;position:relative;">:whale:</span>):
 
 ```shell
 rake routes
 ```
 
-The form also includes a hidden input named **authenticity_token**, this will add a token to the data the form sends to verify that it comes from our application.
+Форма также содержит скрытый инпут с названием **authenticity_token**, он будет добавлять токен к данным, которые отправляет форма для подтверждения, что они идут от нашего приложения.
 
-When you saved the template, go to your browser and refresh `http://DOCKER_IP:3000/todos`. You should see the form and already be able to submit your todos!
+После сохранения шаблона, перейдите в браузер и обновите `http://DOCKER_IP:3000/todos`. Вы должны увидеть форму и она должна работать и создавать новые todo!
 
-We will now change the list of todos a little bit using `semantic-ui`-css classes and make it all work by adding a bit of JavaScript.
+Теперь мы поменяем вид списков todos немного используя `semantic-ui`-css классы и заставим всё работать добавив немного JavaScript.
 
-In the template, change the `<ul>` and everything in it to this:
+В шаблоне поменяйте `<ul>` и всё остальное в нём на следующее:
 
 ```html
 <ul id="todo-list">
@@ -51,9 +51,9 @@ In the template, change the `<ul>` and everything in it to this:
 
 </ul>
 ```
-The todos now also have a checkbox and are marked with CSS classes to make them look nice.
+Теперь todos содержит также чекбоксы и классы для улучшения внешнего вида.
 
-The checkbox uses the "done" attribute of the Todo to know if it is marked as done or not. We will create that in the next step. Before that we will add some JavaScript to `application.js` to create and update to our todos by making a request in the background:
+Чекбоксы используют аттрибут "done" в Todo, чтобы знать отмечен он сделанным или нет. Мы перейдём к этому на следующем этапе. Перед этим мы добавим чуть-чуть JavaScript к `application.js` для создания и обновления наших todos делая запрос в фоне:
 
 ```javascript
 $(document).ready(function () {
@@ -73,7 +73,7 @@ $(document).ready(function () {
 });
 ```
 
-Make sure you add this **after** the first comment-block. The request also uses the "done" attribute. We should implement that now and allow it.
+Убедитесь, что вы добавили это **после** первого блока комментариев. Запрос также использует аттрибут "done". Мы должны теперь его развернуть и разрешить.
 
 
-💾 [Add Form and Checkboxes for Todos](https://github.com/bastilian/todo-application/commit/ffe88069fc6192d9d390e869535e1f7621e0f29d)
+💾 [Добавьте форму и чекбоксы к Todos](https://github.com/bastilian/todo-application/commit/ffe88069fc6192d9d390e869535e1f7621e0f29d)

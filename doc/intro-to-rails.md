@@ -1,9 +1,8 @@
-# Intro to Rails
+# Вступление Rails
 
-The Rails framework is the basis for our web application. Without any special configuration, you can start building your application and put it online for others to use.
+Rails фреймворк - это база для наших веб-приложений. Без какой-то особенной конфигурации вы можете начать создавать ваше приложение и разместить его онлайн для использования другими людьми.
 
-There are three "components" to the framework, "Model", "View" and "Controller". We'll dig deeper into these later, but in short, here's what they are and what they do:
-
-1. **Models** are objects that are connected to a database. Every time you call the method `save` on one of them, it will put that object into your database. That way, you will have it again the next time you start your application.
-1. **Views** make your application visible in the browser; you can think of them as "Templates".
-1. **Controllers** are what make it all work together. It grabs your models from the database and it renders the views with the data it got.
+Есть три "компонента" у фреймворка "Модель", "Отображение" и "Контроллер". Мы пройдёмся по ним чуть позже, но коротко о том, что это такое и для чего:
+1. **Модели** - это объекты, которые подсоединены к базе данных. Каждый раз, когда вы вызываете метод `save` для одного из них, он положит этот объект в вашу базу данных. Таким образом вы будете иметь его снова при запуске вашего приложения.
+2. **Отображения** - делают видимыми ваши приложения в браузере; можете думать о них как о "Шаблонах".
+3. **Контроллеры** - это то, что заставляет это всё вместе работать. Они берут ваши модели из базы данных и далее рендерят отображения с данными которые они имеют.
